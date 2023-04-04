@@ -10,7 +10,7 @@ import java.util.UUID;
 public class Pessoa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private UUID id;
+    private Long id;
     private String nome;
     private Date dataNascimento;
     //  @OneToMany
@@ -22,7 +22,7 @@ public class Pessoa {
     public Pessoa() {
     }
 
-    public Pessoa(UUID id, String nome, Date dataNascimento) {
+    public Pessoa(Long id, String nome, Date dataNascimento) {
         this.id = id;
         this.nome = nome;
         this.dataNascimento = dataNascimento;
@@ -30,11 +30,11 @@ public class Pessoa {
         //this.endereco = endereco;
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

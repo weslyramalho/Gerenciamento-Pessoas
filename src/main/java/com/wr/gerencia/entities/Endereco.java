@@ -9,7 +9,7 @@ import java.util.UUID;
 public class Endereco {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private UUID id;
+    private Long id;
     private String logradouro;
     private String cep;
     private Integer numero;
@@ -20,7 +20,7 @@ public class Endereco {
     public Endereco() {
     }
 
-    public Endereco(UUID id, String logradouro, String cep, Integer numero, String cidade, String estado) {
+    public Endereco(Long id, String logradouro, String cep, Integer numero, String cidade, String estado) {
         this.id = id;
         this.logradouro = logradouro;
         this.cep = cep;
@@ -29,11 +29,11 @@ public class Endereco {
         this.estado = estado;
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
