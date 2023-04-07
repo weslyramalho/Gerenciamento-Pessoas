@@ -2,6 +2,8 @@ package com.wr.gerencia.entities;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -15,6 +17,9 @@ public class Endereco {
     private Integer numero;
     private String cidade;
     private String estado;
+    @ManyToOne
+    @JoinColumn(name= "pessoa_id")
+    private Pessoa pessoa;
 
 
     public Endereco() {

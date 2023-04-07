@@ -1,9 +1,11 @@
 package com.wr.gerencia.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.UUID;
+import java.util.List;
 
 @Entity
 @Table(name = "tb_pessoa")
@@ -13,11 +15,10 @@ public class Pessoa {
     private Long id;
     private String nome;
     private Date dataNascimento;
-    //  @OneToMany
-    //@JoinColumn(name = "pessoa_id")
-    // private Endereco enderecoPrincipal;
-    // @OneToMany(mappedBy = "pessoa")
-    // private List<Endereco> endereco = new ArrayList<>();
+
+   // private Endereco enderecoPrincipal;
+    @OneToMany(mappedBy = "pessoa")
+    private List<Endereco> endereco = new ArrayList<>();
 
     public Pessoa() {
     }
@@ -26,7 +27,7 @@ public class Pessoa {
         this.id = id;
         this.nome = nome;
         this.dataNascimento = dataNascimento;
-        //this.enderecoPrincipal = enderecoPrincipal;
+      //  this.enderecoPrincipal = enderecoPrincipal;
         //this.endereco = endereco;
     }
 
@@ -62,13 +63,5 @@ public class Pessoa {
         this.enderecoPrincipal = enderecoPrincipal;
     }
 
-    public List<Endereco> getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(List<Endereco> endereco) {
-        this.endereco = endereco;
-    }
-
- */
+*/
 }
