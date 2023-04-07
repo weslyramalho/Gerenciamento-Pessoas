@@ -3,22 +3,26 @@ package com.wr.gerencia.entities;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 @Entity
 @Table(name = "tb_pessoa")
-public class Pessoa {
+public class Pessoa implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
     private String dataNascimento;
-
-   // private Endereco enderecoPrincipal;
+    @ManyToOne
+    @JoinColumn(name = "endereco_principal_id")
+    private Endereco enderecoPrincipal;
     @OneToMany(mappedBy = "pessoa")
     private List<Endereco> endereco = new ArrayList<>();
+
+    
 
     public Pessoa() {
     }
@@ -27,8 +31,6 @@ public class Pessoa {
         this.id = id;
         this.nome = nome;
         this.dataNascimento = dataNascimento;
-      //  this.enderecoPrincipal = enderecoPrincipal;
-        //this.endereco = endereco;
     }
 
     public Long getId() {
@@ -54,7 +56,7 @@ public class Pessoa {
     public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
-/*
+
     public Endereco getEnderecoPrincipal() {
         return enderecoPrincipal;
     }
@@ -63,5 +65,5 @@ public class Pessoa {
         this.enderecoPrincipal = enderecoPrincipal;
     }
 
-*/
+
 }
